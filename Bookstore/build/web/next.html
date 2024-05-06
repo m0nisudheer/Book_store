@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>select books</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .a{
+           padding:143px;
+            border-radius:10px;
+            text-align: center;
+            font-size:20px;
+            }
+        #dropdown {
+            color: #333; 
+            background-color: #fff; 
+            border: 1px solid #ccc;
+            border-radius: 5px; 
+            padding: 5px; 
+            width: 200px; 
+        }
+
+        #dropdown option {
+            background-color: #f9f9f9; 
+            color: #333;
+        }
+        .my-dropdown {
+            
+          cursor: pointer;   
+        }
+  
+     </style>
+     
+     <script>
+        function validateForm() {
+            var optgroups = document.querySelectorAll('select[name="books"] optgroup');
+            var selectedOptionsCount = 0;
+            optgroups.forEach(function(optgroup) {
+                var options = optgroup.querySelectorAll('option:checked');
+                if (options.length > 0) {
+                    selectedOptionsCount++;
+                }
+            });
+            if (selectedOptionsCount === 0) {
+                alert('Select Your Books');
+                return false;
+            }
+            return true;
+        }
+    </script>
+    </head>
+        <body style=background-image:url("image\\libr.jpg");background-size:cover> 
+            <div class="a">
+            <form method="get" action="mains" onsubmit="return validateForm();">
+            <h2 style="text-align:center;color:darkred;text-decoration: black 3px;text-shadow:2px 1px white">SELECT YOUR BOOKS </h2>
+            <select id="dropdown" name="books" class="my-dropdown">
+                <option value="" disabled selected>Select</option>
+                <optgroup label="CSE">
+                    <option value="a">C programming</option>
+                    <option value="b">Python</option>
+                    <option value="c">Java</option>
+               </optgroup>
+               <optgroup label="ECE">
+                    <option value="d">Signals</option>
+                    <option value="e">VLSI</option>
+                    <option value="f">Integrated Circuits</option>
+               </optgroup>
+               <optgroup label="MECH">
+                    <option value="g">Strength Of Materials</option>
+                    <option value="h">Fluid Mechanics</option>
+                    <option value="i">Machine Design</option>
+               </optgroup>
+               <optgroup label="CIVIL">
+                    <option value="j">Concrete Technology</option>
+                    <option value="k">Infrastructure Engineering</option>
+                    <option value="l">Structural Engineering</option>
+               </optgroup>
+               <optgroup label="EEE">
+                    <option value="M">Analog Electronics</option>
+                    <option value="N">Control System Engineering</option>
+                    <option value="O">Circuit Theory</option>
+               </optgroup>
+               
+            </select><br/><br/>
+            <input type='submit' value='Proceed' style="border-radius:5px;cursor: pointer;font-family:arial black ;background-color:black;color:white;height:25px;width:100px" />
+      </form>
+            </div>
+        </body>
+</html>
+
